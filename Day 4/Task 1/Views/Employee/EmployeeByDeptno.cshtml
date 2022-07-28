@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Employee>
+
+@{
+    ViewData["Title"] = "GetEmployeeByDeptno";
+}
+
+<from asp-action="GetEmployeeByDeptno">
+    <input name="Deptno"/>
+    <input type="submit" value="Search"/>
+</from>
+
+@{
+    if (ViewBag.RequestType == "POST")
+    {
+    <table>
+                    <tr>
+                        <th>EmployeeName</th>
+                        <th>Job</th>
+                        <th>Salary</th>
+                        <th>Deptno</th>
+                    </tr>
+
+                    @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.EmployeeName</td>
+                    <td>@item.Job</td>
+                    <td>@item.Salary</td>
+                    <td>@item.Deptno</td>
+                    
+                </tr>
+            }
+        </table>
+    }
+}

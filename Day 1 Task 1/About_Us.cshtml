@@ -1,8 +1,43 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<h3>This is About us page</h3>
-<img src="https://th.bing.com/th/id/OIP.pPprp_knAWKICVk4fVh9VAHaD4?w=325&h=180&c=7&r=0&o=5&pid=1.7"/>
+Sub esendtable()
 
+Dim outlook As Object
+
+Dim newEmail As Object
+
+Dim xinspect As Object
+
+Dim pageEditor As Object
+
+Set outlook = CreateObject("Outlook.Application")
+
+Set newEmail outlook.Createltem(0) With newEmail
+
+.To Sheet1.Range("A1").Text
+
+.CC=" .BCC = ""
+
+.Subject = "Data"
+
+.Body = "Please find the requested information' & vbCrLf &
+
+"Best Regards" .display
+
+Set xinspect = newEmail.GetInspector
+
+Set pageEditor = xinspect.WordEditor "Sheet1.Range("B2:E5").Copy
+
+Sheet1.Range("Table1 [#All]").Copy
+
+pageEditor.Application.Selection.Start = Len(Body)
+
+pageEditor.Application.Selection.End = pageEditor.Application.Selection.Start
+
+pageEditor.Application.Selection.PasteAndFormat (wdFormatPlainText)
+
+.display 'Send
+
+Set pageEditor = Nothing
+
+Set xinspect = Nothing
+
+End With
